@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Алла Заливнова](https://up.htmlacademy.ru/javascript-individual/2/user/2634943).
-* Наставник: [Виктория Никитина](https://htmlacademy.ru/profile/id1217273).
+* Наставник: [Виктория Никитина ](https://htmlacademy.ru/profile/id1217273).
 
 ---
 
