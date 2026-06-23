@@ -32,13 +32,23 @@ const MESSAGES = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают.',
   'Как можно было поймать такой неудачный момент ?!'
-]
+];
 
 const SIMILAR_ARRAY_COUNT = 25;
 const id = 25;
-const likes = 200;
-const comments = 30;
-const avatar = 25;
+const likes = {
+  MIN: 15,
+  MAX: 200
+};
+const COMMENTS = 30;
+const Avatar = {
+  MIN: 1,
+  MAX: 6
+};
+const CommetsId = {
+  MIN: 10000,
+  MAX: 1_000_000
+};
 
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
@@ -50,18 +60,22 @@ const getRandomInteger = (a, b) => {
 const getRandomArrayElement = (elements) =>
   elements[getRandomInteger(0, elements.length - 1)];
 
-const createArray = () => ({
+const getComment = () => ({
+  id: getRandomInteger(CommetsId.MIN, CommetsId.MAX),
   name: getRandomArrayElement(NAMES),
   message: getRandomArrayElement(MESSAGES),
-  description: getRandomArrayElement(DESCRIPTIONS),
-  id: getRandomArrayElement(id),
-  url: getRandomArrayElement(url),
-  likes: getRandomArrayElement(likes),
-  comments: getRandomArrayElement(comments),
-  avatar: photos / avatar - { getRandomArrayElement }.jpg
+  avatar: `./img/avatar-${getRandomInteger(Avatar.MIN, Avatar.MAX)}.svg`
 });
 
-const similarArray = Array.from({ length: SIMILAR_ARRAY_COUNT }, createArray);
+const createArray = (i) => ({
+  description: getRandomArrayElement(DESCRIPTIONS),
+  id: i,
+  url: `./pictures/${i}.jpg`,
+  likes: getRandomInteger(Likes.MIN, Likes.MAX),
+  comments: Array.from({ length: getRandomInteger(0, COMMENTS) }, getComment)
+});
+
+const similarArray = Array.from({ length: SIMILAR_ARRAY_COUNT }, (_, i) => createArray(i + 1));
 
 console.log(similarArray);
 
