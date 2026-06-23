@@ -1,29 +1,21 @@
-
-
 //Функция для проверки длины строки
+const checkString = (string, length) => string.length <= length;
 
-let checksString = function (string, length) {
-  if (string.length <= length) {
-    return true;
-  }
-  return false;
-};
 //Функция для проверки, является ли строка палиндромом
 
-let isPalindrome = function (string) {
-  let normalized = string
+const isPalindrome = (string) => {
+  const normalized = string
     .replaceAll(' ', '')
     .toLowerCase();
   let reversed = '';
   for (let i = normalized.length - 1; i >= 0; i--) {
-    let char = normalized[i];
-    reversed += char;
+    reversed += normalized[i];
   }
   return normalized === reversed;
 };
 
 //Функция извлечения цифр
-let extractDigits = function (string) {
+const extractDigits = (string) => {
   if (typeof string === 'number') {
     string = string.toString();
   }
@@ -34,12 +26,5 @@ let extractDigits = function (string) {
       digits += char;
     }
   }
-  if (digits === '') {
-    return NaN;
-  }
-  let result = parseInt(digits);
-  if (result < 0) {
-    result = result * -1;
-  }
-  return result;
+  return parseInt(digits, 10);
 };
