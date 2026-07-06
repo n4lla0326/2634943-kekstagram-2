@@ -1,5 +1,3 @@
-import { getRandomArrayElement } from './util.js';
-
 const NAMES = [
   'Артём',
   'Борис',
@@ -37,8 +35,8 @@ const MESSAGES = [
 ];
 
 const SIMILAR_ARRAY_COUNT = 25;
-const id = 25;
-const likes = {
+
+const Likes = {
   MIN: 15,
   MAX: 200
 };
@@ -47,13 +45,13 @@ const Avatar = {
   MIN: 1,
   MAX: 6
 };
-const CommetsId = {
+const CommentsId = {
   MIN: 10000,
   MAX: 1_000_000
 };
 
 const getComment = () => ({
-  id: getRandomInteger(CommetsId.MIN, CommetsId.MAX),
+  id: getRandomInteger(CommentsId.MIN, CommentsId.MAX),
   name: getRandomArrayElement(NAMES),
   message: getRandomArrayElement(MESSAGES),
   avatar: `./img/avatar-${getRandomInteger(Avatar.MIN, Avatar.MAX)}.svg`
@@ -62,7 +60,7 @@ const getComment = () => ({
 const createArray = (i) => ({
   description: getRandomArrayElement(DESCRIPTIONS),
   id: i,
-  url: `./pictures/${i}.jpg`,
+  url: `./photos/${i}.jpg`,
   likes: getRandomInteger(Likes.MIN, Likes.MAX),
   comments: Array.from({ length: getRandomInteger(0, COMMENTS) }, getComment)
 });
@@ -70,6 +68,4 @@ const createArray = (i) => ({
 const similarArray = () => Array.from({ length: SIMILAR_ARRAY_COUNT }, (_, i) => createArray(i + 1));
 
 export { similarArray };
-
-
-
+import { getRandomArrayElement, getRandomInteger } from './util.js';
