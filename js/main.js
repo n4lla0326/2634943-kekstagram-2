@@ -1,7 +1,7 @@
 import './util.js';
 import { similarArray } from './data.js';
+import { renderCards } from './render-cards.js';
 
-console.log(
-  similarArray()
-);
 
+const photos = similarArray();
+renderCards(photos)
