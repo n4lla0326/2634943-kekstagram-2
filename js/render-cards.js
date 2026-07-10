@@ -1,3 +1,5 @@
+import { openBigPicture } from './render-big-picture.js';
+
 const picturesContainerElement = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
@@ -12,6 +14,10 @@ const createPictureElement = (photo) => {
   img.alt = photo.description;
   likes.textContent = photo.likes;
   commentsCount.textContent = photo.comments.length;
+
+  newPictureElement.addEventListener('click', () => {
+    openBigPicture(photo);
+  });
 
   return newPictureElement;
 };
