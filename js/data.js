@@ -1,3 +1,5 @@
+import { getRandomArrayElement, getRandomInteger } from './util.js';
+
 const NAMES = [
   'Артём',
   'Борис',
@@ -68,4 +70,3 @@ const createArray = (i) => ({
 const similarArray = () => Array.from({ length: SIMILAR_ARRAY_COUNT }, (_, i) => createArray(i + 1));
 
 export { similarArray };
-import { getRandomArrayElement, getRandomInteger } from './util.js';
