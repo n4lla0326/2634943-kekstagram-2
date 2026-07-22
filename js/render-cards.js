@@ -31,4 +31,4 @@ export const renderCards = (photos) => {
   });
 
   picturesContainerElement.appendChild(picturesFragment);
-}
+};
