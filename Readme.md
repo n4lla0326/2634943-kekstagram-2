@@ -1,3 +1,5 @@
+[Демонстрация проекта](https://n4lla0326.github.io/2634943-kekstagram-2/)
+
 # Личный проект «Кекстаграм»
 
 * Студент: [Алла Заливнова](https://up.htmlacademy.ru/javascript-individual/2/user/2634943).
